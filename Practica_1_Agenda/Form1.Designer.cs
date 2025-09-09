@@ -28,20 +28,136 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.SSInformacion = new System.Windows.Forms.StatusStrip();
+            this.MSmenu = new System.Windows.Forms.MenuStrip();
+            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DGVDatos = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido_Pat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido_mat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MSmenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).BeginInit();
             this.SuspendLayout();
+            // 
+            // SSInformacion
+            // 
+            this.SSInformacion.Location = new System.Drawing.Point(0, 373);
+            this.SSInformacion.Name = "SSInformacion";
+            this.SSInformacion.Size = new System.Drawing.Size(744, 22);
+            this.SSInformacion.TabIndex = 0;
+            this.SSInformacion.Text = "statusStrip1";
+            // 
+            // MSmenu
+            // 
+            this.MSmenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem});
+            this.MSmenu.Location = new System.Drawing.Point(0, 0);
+            this.MSmenu.Name = "MSmenu";
+            this.MSmenu.Size = new System.Drawing.Size(744, 24);
+            this.MSmenu.TabIndex = 1;
+            this.MSmenu.Text = "menuStrip1";
+            // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevoToolStripMenuItem,
+            this.abrirToolStripMenuItem,
+            this.guardarToolStripMenuItem,
+            this.salirToolStripMenuItem});
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // nuevoToolStripMenuItem
+            // 
+            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoToolStripMenuItem.Text = "Nuevo";
+            // 
+            // abrirToolStripMenuItem
+            // 
+            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirToolStripMenuItem.Text = "Abrir";
+            // 
+            // guardarToolStripMenuItem
+            // 
+            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guardarToolStripMenuItem.Text = "Guardar";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
+            // DGVDatos
+            // 
+            this.DGVDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre,
+            this.Apellido_Pat,
+            this.Apellido_mat});
+            this.DGVDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGVDatos.Location = new System.Drawing.Point(0, 24);
+            this.DGVDatos.Name = "DGVDatos";
+            this.DGVDatos.Size = new System.Drawing.Size(744, 349);
+            this.DGVDatos.TabIndex = 2;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 200;
+            // 
+            // Apellido_Pat
+            // 
+            this.Apellido_Pat.HeaderText = "Apellido Pat.";
+            this.Apellido_Pat.Name = "Apellido_Pat";
+            this.Apellido_Pat.Width = 200;
+            // 
+            // Apellido_mat
+            // 
+            this.Apellido_mat.HeaderText = "Apellido Mat.";
+            this.Apellido_mat.Name = "Apellido_mat";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 395);
+            this.Controls.Add(this.DGVDatos);
+            this.Controls.Add(this.SSInformacion);
+            this.Controls.Add(this.MSmenu);
+            this.MainMenuStrip = this.MSmenu;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.MSmenu.ResumeLayout(false);
+            this.MSmenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.StatusStrip SSInformacion;
+        private System.Windows.Forms.MenuStrip MSmenu;
+        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.DataGridView DGVDatos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_Pat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_mat;
     }
 }
 
