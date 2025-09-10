@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practica_1_Agenda.CLASES;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,24 @@ using System.Windows.Forms;
 
 namespace Practica_1_Agenda
 {
-    public partial class Form1 : Form
+    public partial class AGENDA : Form
     {
-        public Form1()
+        private BaseDatosJson baseDatos;
+        public AGENDA()
         {
             InitializeComponent();
+
+            
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

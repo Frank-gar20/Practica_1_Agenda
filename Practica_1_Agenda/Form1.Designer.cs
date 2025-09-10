@@ -1,6 +1,6 @@
 ﻿namespace Practica_1_Agenda
 {
-    partial class Form1
+    partial class AGENDA
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -37,6 +37,7 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido_Pat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido_mat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MSmenu.SuspendLayout();
@@ -47,7 +48,7 @@
             // 
             this.SSInformacion.Location = new System.Drawing.Point(0, 373);
             this.SSInformacion.Name = "SSInformacion";
-            this.SSInformacion.Size = new System.Drawing.Size(801, 22);
+            this.SSInformacion.Size = new System.Drawing.Size(886, 22);
             this.SSInformacion.TabIndex = 0;
             this.SSInformacion.Text = "statusStrip1";
             // 
@@ -57,7 +58,7 @@
             this.archivoToolStripMenuItem});
             this.MSmenu.Location = new System.Drawing.Point(0, 0);
             this.MSmenu.Name = "MSmenu";
-            this.MSmenu.Size = new System.Drawing.Size(801, 24);
+            this.MSmenu.Size = new System.Drawing.Size(886, 24);
             this.MSmenu.TabIndex = 1;
             this.MSmenu.Text = "menuStrip1";
             // 
@@ -73,14 +74,15 @@
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // DGVDatos
             // 
@@ -89,31 +91,38 @@
             this.Nombre,
             this.Apellido_Pat,
             this.Apellido_mat,
+            this.Direccion,
             this.Telefono,
             this.Correo});
             this.DGVDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGVDatos.Location = new System.Drawing.Point(0, 24);
             this.DGVDatos.Name = "DGVDatos";
-            this.DGVDatos.Size = new System.Drawing.Size(801, 349);
+            this.DGVDatos.Size = new System.Drawing.Size(886, 349);
             this.DGVDatos.TabIndex = 2;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 200;
+            this.Nombre.Width = 150;
             // 
             // Apellido_Pat
             // 
             this.Apellido_Pat.HeaderText = "Apellido Pat.";
             this.Apellido_Pat.Name = "Apellido_Pat";
-            this.Apellido_Pat.Width = 150;
+            this.Apellido_Pat.Width = 120;
             // 
             // Apellido_mat
             // 
             this.Apellido_mat.HeaderText = "Apellido Mat.";
             this.Apellido_mat.Name = "Apellido_mat";
-            this.Apellido_mat.Width = 150;
+            this.Apellido_mat.Width = 120;
+            // 
+            // Direccion
+            // 
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.Width = 200;
             // 
             // Telefono
             // 
@@ -126,17 +135,18 @@
             this.Correo.Name = "Correo";
             this.Correo.Width = 150;
             // 
-            // Form1
+            // AGENDA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 395);
+            this.ClientSize = new System.Drawing.Size(886, 395);
             this.Controls.Add(this.DGVDatos);
             this.Controls.Add(this.SSInformacion);
             this.Controls.Add(this.MSmenu);
             this.MainMenuStrip = this.MSmenu;
-            this.Name = "Form1";
+            this.Name = "AGENDA";
             this.Text = "AGENDA";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.MSmenu.ResumeLayout(false);
             this.MSmenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).EndInit();
@@ -156,6 +166,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_Pat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_mat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
     }
