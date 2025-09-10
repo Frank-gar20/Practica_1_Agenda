@@ -28,29 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SSInformacion = new System.Windows.Forms.StatusStrip();
+            this.etiquetaSS1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.MSmenu = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DGVDatos = new System.Windows.Forms.DataGridView();
+            this.OFDabrir = new System.Windows.Forms.OpenFileDialog();
+            this.SFDguardar = new System.Windows.Forms.SaveFileDialog();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido_Pat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido_mat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Temporizador = new System.Windows.Forms.Timer(this.components);
+            this.SSInformacion.SuspendLayout();
             this.MSmenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // SSInformacion
             // 
+            this.SSInformacion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.etiquetaSS1});
             this.SSInformacion.Location = new System.Drawing.Point(0, 373);
             this.SSInformacion.Name = "SSInformacion";
             this.SSInformacion.Size = new System.Drawing.Size(886, 22);
             this.SSInformacion.TabIndex = 0;
             this.SSInformacion.Text = "statusStrip1";
+            // 
+            // etiquetaSS1
+            // 
+            this.etiquetaSS1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.etiquetaSS1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.etiquetaSS1.Name = "etiquetaSS1";
+            this.etiquetaSS1.Size = new System.Drawing.Size(0, 17);
             // 
             // MSmenu
             // 
@@ -66,7 +83,9 @@
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoToolStripMenuItem,
-            this.salirToolStripMenuItem});
+            this.salirToolStripMenuItem,
+            this.guardarToolStripMenuItem,
+            this.abrirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
@@ -76,6 +95,7 @@
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
             this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -83,6 +103,20 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // guardarToolStripMenuItem
+            // 
+            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guardarToolStripMenuItem.Text = "Guardar";
+            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
+            // 
+            // abrirToolStripMenuItem
+            // 
+            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // DGVDatos
             // 
@@ -100,6 +134,15 @@
             this.DGVDatos.Size = new System.Drawing.Size(886, 349);
             this.DGVDatos.TabIndex = 2;
             // 
+            // OFDabrir
+            // 
+            this.OFDabrir.FileName = "openFileDialog1";
+            this.OFDabrir.Filter = "Agenda|*.json";
+            // 
+            // SFDguardar
+            // 
+            this.SFDguardar.Filter = "Agenda|*.json";
+            // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
@@ -108,13 +151,13 @@
             // 
             // Apellido_Pat
             // 
-            this.Apellido_Pat.HeaderText = "Apellido Pat.";
+            this.Apellido_Pat.HeaderText = "Apellido Paterno";
             this.Apellido_Pat.Name = "Apellido_Pat";
             this.Apellido_Pat.Width = 120;
             // 
             // Apellido_mat
             // 
-            this.Apellido_mat.HeaderText = "Apellido Mat.";
+            this.Apellido_mat.HeaderText = "Apellido Materno";
             this.Apellido_mat.Name = "Apellido_mat";
             this.Apellido_mat.Width = 120;
             // 
@@ -135,6 +178,10 @@
             this.Correo.Name = "Correo";
             this.Correo.Width = 150;
             // 
+            // Temporizador
+            // 
+            this.Temporizador.Interval = 1000;
+            // 
             // AGENDA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,6 +194,8 @@
             this.Name = "AGENDA";
             this.Text = "AGENDA";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.SSInformacion.ResumeLayout(false);
+            this.SSInformacion.PerformLayout();
             this.MSmenu.ResumeLayout(false);
             this.MSmenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).EndInit();
@@ -163,12 +212,18 @@
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.DataGridView DGVDatos;
+        private System.Windows.Forms.OpenFileDialog OFDabrir;
+        private System.Windows.Forms.SaveFileDialog SFDguardar;
+        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel etiquetaSS1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_Pat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_mat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
+        private System.Windows.Forms.Timer Temporizador;
     }
 }
 
