@@ -11,17 +11,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Microsoft.Win32;
 
 namespace Practica_1_Agenda
 {
     public partial class AGENDA : Form
     {
-        private BaseDatosJson baseDatos;
+        public String ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "informacion.json");
         public AGENDA()
         {
             InitializeComponent();
-
-
+            try
+            {
+                String json = File.ReadAllText(ruta);
+                var registros = JsonConvert.DeserializeObject<BaseDatosJson>(json);
+                cargar(registros);
+                etiquetaSS1.Text = "Fecha de guardado: " + registros.UltimaActualizacion.ToString() + "\n  Registros: " + registros.persona.Count;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,18 +56,7 @@ namespace Practica_1_Agenda
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var baseDatos = Abirir();
-                if (SFDguardar.ShowDialog() == DialogResult.OK)
-                {
-                    guardar(baseDatos);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error" + ex.Message, "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private void guardar(BaseDatosJson lista)
@@ -68,10 +68,10 @@ namespace Practica_1_Agenda
                 NullValueHandling = NullValueHandling.Ignore,
             };
             String json = JsonConvert.SerializeObject(lista, Caracteristicas);
-            File.WriteAllText(SFDguardar.FileName, json);
+            File.WriteAllText(ruta,json);
         }
 
-        private BaseDatosJson Abirir()
+        private BaseDatosJson Abrir()
         {
             var registros = new BaseDatosJson();
             foreach (DataGridViewRow fila in DGVDatos.Rows)
@@ -94,20 +94,7 @@ namespace Practica_1_Agenda
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (OFDabrir.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    String json = File.ReadAllText(OFDabrir.FileName);
-                    var registros = JsonConvert.DeserializeObject<BaseDatosJson>(json);
-                    cargar(registros);
-                    etiquetaSS1.Text = "Fecha de guardado: "+ registros.UltimaActualizacion.ToString() + "\n  Registros: " + registros.persona.Count;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            
         }
 
         private void cargar(BaseDatosJson registros)
@@ -115,7 +102,20 @@ namespace Practica_1_Agenda
             DGVDatos.Rows.Clear();
             foreach (var registro in registros.persona)
             {
-                DGVDatos.Rows.Add(new object[] { registro.nombre, registro.telefono, registro.correo });
+                DGVDatos.Rows.Add(new object[] { registro.nombre, registro.apellido_pat, registro.apellido_mat, registro.direccion, registro.telefono, registro.correo });
+            }
+        }
+
+        private void Temporizador_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                var BaseDatos = Abrir();
+                guardar(BaseDatos);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -35,17 +35,15 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DGVDatos = new System.Windows.Forms.DataGridView();
-            this.OFDabrir = new System.Windows.Forms.OpenFileDialog();
-            this.SFDguardar = new System.Windows.Forms.SaveFileDialog();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido_Pat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido_mat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OFDabrir = new System.Windows.Forms.OpenFileDialog();
+            this.SFDguardar = new System.Windows.Forms.SaveFileDialog();
             this.Temporizador = new System.Windows.Forms.Timer(this.components);
             this.SSInformacion.SuspendLayout();
             this.MSmenu.SuspendLayout();
@@ -83,9 +81,7 @@
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoToolStripMenuItem,
-            this.salirToolStripMenuItem,
-            this.guardarToolStripMenuItem,
-            this.abrirToolStripMenuItem});
+            this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
@@ -94,7 +90,7 @@
             // 
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
             this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.nuevoToolStripMenuItem.Text = "Nuevo";
+            this.nuevoToolStripMenuItem.Text = "Limpiar tabla";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
@@ -103,20 +99,6 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // guardarToolStripMenuItem
-            // 
-            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.guardarToolStripMenuItem.Text = "Guardar";
-            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
-            // 
-            // abrirToolStripMenuItem
-            // 
-            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.abrirToolStripMenuItem.Text = "Abrir";
-            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // DGVDatos
             // 
@@ -133,15 +115,6 @@
             this.DGVDatos.Name = "DGVDatos";
             this.DGVDatos.Size = new System.Drawing.Size(886, 349);
             this.DGVDatos.TabIndex = 2;
-            // 
-            // OFDabrir
-            // 
-            this.OFDabrir.FileName = "openFileDialog1";
-            this.OFDabrir.Filter = "Agenda|*.json";
-            // 
-            // SFDguardar
-            // 
-            this.SFDguardar.Filter = "Agenda|*.json";
             // 
             // Nombre
             // 
@@ -178,9 +151,20 @@
             this.Correo.Name = "Correo";
             this.Correo.Width = 150;
             // 
+            // OFDabrir
+            // 
+            this.OFDabrir.FileName = "openFileDialog1";
+            this.OFDabrir.Filter = "Agenda|*.json";
+            // 
+            // SFDguardar
+            // 
+            this.SFDguardar.Filter = "Agenda|*.json";
+            // 
             // Temporizador
             // 
-            this.Temporizador.Interval = 1000;
+            this.Temporizador.Enabled = true;
+            this.Temporizador.Interval = 500;
+            this.Temporizador.Tick += new System.EventHandler(this.Temporizador_Tick);
             // 
             // AGENDA
             // 
@@ -214,8 +198,6 @@
         private System.Windows.Forms.DataGridView DGVDatos;
         private System.Windows.Forms.OpenFileDialog OFDabrir;
         private System.Windows.Forms.SaveFileDialog SFDguardar;
-        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel etiquetaSS1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_Pat;
