@@ -30,8 +30,7 @@ namespace Practica_1_Agenda
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -47,9 +46,10 @@ namespace Practica_1_Agenda
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("¿Estas seguro de Generar un archivo nuevo?","Sistema",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+            DialogResult res = MessageBox.Show("¿Estas seguro de Generar un archivo nuevo?", "Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (res == DialogResult.OK)
                 DGVDatos.Rows.Clear();
+            
             else
                 return;
         }

@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SSInformacion = new System.Windows.Forms.StatusStrip();
             this.etiquetaSS1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.MSmenu = new System.Windows.Forms.MenuStrip();
@@ -45,6 +52,7 @@
             this.OFDabrir = new System.Windows.Forms.OpenFileDialog();
             this.SFDguardar = new System.Windows.Forms.SaveFileDialog();
             this.Temporizador = new System.Windows.Forms.Timer(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.SSInformacion.SuspendLayout();
             this.MSmenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).BeginInit();
@@ -52,6 +60,7 @@
             // 
             // SSInformacion
             // 
+            this.SSInformacion.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.SSInformacion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.etiquetaSS1});
             this.SSInformacion.Location = new System.Drawing.Point(0, 373);
@@ -69,11 +78,12 @@
             // 
             // MSmenu
             // 
+            this.MSmenu.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MSmenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem});
             this.MSmenu.Location = new System.Drawing.Point(0, 0);
             this.MSmenu.Name = "MSmenu";
-            this.MSmenu.Size = new System.Drawing.Size(886, 24);
+            this.MSmenu.Size = new System.Drawing.Size(886, 26);
             this.MSmenu.TabIndex = 1;
             this.MSmenu.Text = "menuStrip1";
             // 
@@ -83,25 +93,27 @@
             this.nuevoToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.nuevoToolStripMenuItem.Text = "Limpiar tabla";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // DGVDatos
             // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DGVDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
@@ -111,42 +123,65 @@
             this.Telefono,
             this.Correo});
             this.DGVDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGVDatos.Location = new System.Drawing.Point(0, 24);
+            this.DGVDatos.Location = new System.Drawing.Point(0, 26);
             this.DGVDatos.Name = "DGVDatos";
-            this.DGVDatos.Size = new System.Drawing.Size(886, 349);
+            this.DGVDatos.Size = new System.Drawing.Size(886, 347);
             this.DGVDatos.TabIndex = 2;
             // 
             // Nombre
             // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.Nombre.DefaultCellStyle = dataGridViewCellStyle2;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
             this.Nombre.Width = 150;
             // 
             // Apellido_Pat
             // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Apellido_Pat.DefaultCellStyle = dataGridViewCellStyle3;
             this.Apellido_Pat.HeaderText = "Apellido Paterno";
             this.Apellido_Pat.Name = "Apellido_Pat";
             this.Apellido_Pat.Width = 120;
             // 
             // Apellido_mat
             // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Apellido_mat.DefaultCellStyle = dataGridViewCellStyle4;
             this.Apellido_mat.HeaderText = "Apellido Materno";
             this.Apellido_mat.Name = "Apellido_mat";
             this.Apellido_mat.Width = 120;
             // 
             // Direccion
             // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Direccion.DefaultCellStyle = dataGridViewCellStyle5;
             this.Direccion.HeaderText = "Direccion";
             this.Direccion.Name = "Direccion";
             this.Direccion.Width = 200;
             // 
             // Telefono
             // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.Telefono.DefaultCellStyle = dataGridViewCellStyle6;
             this.Telefono.HeaderText = "Telefono";
             this.Telefono.Name = "Telefono";
             // 
             // Correo
             // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.Correo.DefaultCellStyle = dataGridViewCellStyle7;
             this.Correo.HeaderText = "Correo";
             this.Correo.Name = "Correo";
             this.Correo.Width = 150;
@@ -165,6 +200,11 @@
             this.Temporizador.Enabled = true;
             this.Temporizador.Interval = 500;
             this.Temporizador.Tick += new System.EventHandler(this.Temporizador_Tick);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
             // 
             // AGENDA
             // 
@@ -199,13 +239,14 @@
         private System.Windows.Forms.OpenFileDialog OFDabrir;
         private System.Windows.Forms.SaveFileDialog SFDguardar;
         private System.Windows.Forms.ToolStripStatusLabel etiquetaSS1;
+        private System.Windows.Forms.Timer Temporizador;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_Pat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_mat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
-        private System.Windows.Forms.Timer Temporizador;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 
