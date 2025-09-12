@@ -36,6 +36,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AGENDA));
             this.SSInformacion = new System.Windows.Forms.StatusStrip();
             this.etiquetaSS1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.MSmenu = new System.Windows.Forms.MenuStrip();
@@ -52,7 +53,7 @@
             this.OFDabrir = new System.Windows.Forms.OpenFileDialog();
             this.SFDguardar = new System.Windows.Forms.SaveFileDialog();
             this.Temporizador = new System.Windows.Forms.Timer(this.components);
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.NInotificacion = new System.Windows.Forms.NotifyIcon(this.components);
             this.SSInformacion.SuspendLayout();
             this.MSmenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDatos)).BeginInit();
@@ -61,6 +62,8 @@
             // SSInformacion
             // 
             this.SSInformacion.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.SSInformacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.SSInformacion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SSInformacion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.etiquetaSS1});
             this.SSInformacion.Location = new System.Drawing.Point(0, 373);
@@ -71,7 +74,8 @@
             // 
             // etiquetaSS1
             // 
-            this.etiquetaSS1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.etiquetaSS1.BackColor = System.Drawing.Color.White;
+            this.etiquetaSS1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.etiquetaSS1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.etiquetaSS1.Name = "etiquetaSS1";
             this.etiquetaSS1.Size = new System.Drawing.Size(0, 17);
@@ -136,7 +140,7 @@
             this.Nombre.DefaultCellStyle = dataGridViewCellStyle2;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 150;
+            this.Nombre.Width = 153;
             // 
             // Apellido_Pat
             // 
@@ -201,10 +205,11 @@
             this.Temporizador.Interval = 500;
             this.Temporizador.Tick += new System.EventHandler(this.Temporizador_Tick);
             // 
-            // notifyIcon1
+            // NInotificacion
             // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
+            this.NInotificacion.Icon = ((System.Drawing.Icon)(resources.GetObject("NInotificacion.Icon")));
+            this.NInotificacion.Text = "NInotificacion";
+            this.NInotificacion.Visible = true;
             // 
             // AGENDA
             // 
@@ -216,7 +221,7 @@
             this.Controls.Add(this.MSmenu);
             this.MainMenuStrip = this.MSmenu;
             this.Name = "AGENDA";
-            this.Text = "AGENDA";
+            this.Text = "mm";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SSInformacion.ResumeLayout(false);
             this.SSInformacion.PerformLayout();
@@ -240,13 +245,13 @@
         private System.Windows.Forms.SaveFileDialog SFDguardar;
         private System.Windows.Forms.ToolStripStatusLabel etiquetaSS1;
         private System.Windows.Forms.Timer Temporizador;
+        private System.Windows.Forms.NotifyIcon NInotificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_Pat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_mat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

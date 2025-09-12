@@ -21,8 +21,26 @@ namespace Practica_1_Agenda
         public AGENDA()
         {
             InitializeComponent();
-            try
+            //globo de notifiacion
+            NInotificacion.Icon = SystemIcons.Information;
+            NInotificacion.Visible = true;
+            NInotificacion.BalloonTipTitle = "BIENVENIDO";
+            NInotificacion.BalloonTipText = "Tu agenda está lista para hoy!!! \n Que tengas buen dia";
+            NInotificacion.BalloonTipIcon = ToolTipIcon.Info;
+            NInotificacion.ShowBalloonTip(4000);
+
+            if (File.Exists(ruta) == false)
             {
+                var comodin = new BaseDatosJson
+                {
+                    persona = new List<Persona>(),
+                    totalRegistros = 0,
+                    UltimaActualizacion = DateTime.Now
+                };
+                guardar(comodin);
+            }
+            try
+            {                
                 String json = File.ReadAllText(ruta);
                 var registros = JsonConvert.DeserializeObject<BaseDatosJson>(json);
                 cargar(registros);
@@ -46,10 +64,17 @@ namespace Practica_1_Agenda
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("¿Estas seguro de Generar un archivo nuevo?", "Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult res = MessageBox.Show("¿Estas seguro de limpiar tu agenda?", "Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (res == DialogResult.OK)
+            {
                 DGVDatos.Rows.Clear();
-            
+                NInotificacion.Icon = SystemIcons.Information;
+                NInotificacion.Visible = true;
+                NInotificacion.BalloonTipTitle = "Tabla Limpia";
+                NInotificacion.BalloonTipText = "Tabla limpiada correctamente";
+                NInotificacion.BalloonTipIcon = ToolTipIcon.Info;
+                NInotificacion.ShowBalloonTip(3000);
+            }
             else
                 return;
         }
